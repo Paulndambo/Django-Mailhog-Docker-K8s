@@ -28,3 +28,7 @@ jobs:
     - name: Run Tests
       run: |
         python manage.py test
+    - name: Print Secrets
+      run: |
+        echo ${{ secrets.DOCKER_HUB_USERNAME }}
+        echo ${{ secrets.DOCKER_HUB_PASSWORD }}
