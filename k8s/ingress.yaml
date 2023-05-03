@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: django-mailhog
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: dh.167.99.16.62.nip.io
+    http:
+      paths:
+      - path: /backend
+        pathType: Prefix
+        backend:
+          service:
+            name: django-mailhog-service
+            port:
+              #name: http
+              number: 8000
+
+      - path: /mailhog
+        pathType: Prefix
+        backend:
+          service:
+            name: mailhog-service
+            port:
+              #name: http
+              number: 8025

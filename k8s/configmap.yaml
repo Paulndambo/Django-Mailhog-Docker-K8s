@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mailhog-config
+  labels:
+    app: django-mailhog
+data:
+  EMAIL_HOST: mailhog 
+  EMAIL_PORT: "1025"
+  EMAIL_HOST_USER: "mailhog"
+  EMAIL_HOST_PASSWORD: "mailhog"
+  EMAIL_USE_TLS: "False"
